@@ -34,5 +34,3 @@
 
 3. **Limited Scalability:**
    This infrastructure can't easily handle high levels of incoming traffic. As traffic increases, the server might struggle to manage the load effectively.
-
-To address these issues, a more robust infrastructure would involve distributing components across multiple servers, implementing load balancing, setting up redundancy, and using tools like containers or cloud services to allow for easier scalability and maintenance.
