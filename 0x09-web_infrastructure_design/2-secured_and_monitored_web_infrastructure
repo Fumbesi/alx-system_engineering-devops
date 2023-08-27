@@ -1,0 +1,40 @@
+Explanation for Additional Elements:
+
+Firewalls (1, 2, 3):
+
+Firewall 1: Protects the entire infrastructure from unauthorized external access.
+Firewall 2 & 3: Provide additional security layers for the load balancer and the individual servers.
+SSL Certificate (HTTPS):
+
+Installed on the load balancer to secure data transmission between clients and servers.
+Monitoring Clients (Sumo Logic, etc.):
+
+Collect data from various components to monitor system health, performance, and security.
+Firewalls:
+
+Added to control and filter incoming and outgoing network traffic.
+HTTPS Traffic:
+
+HTTPS ensures encrypted communication, safeguarding data during transmission.
+Monitoring:
+
+Used to track system performance, detect issues, and maintain operational health.
+Monitoring Clients: Collect performance and security data from servers.
+Monitoring Data Collection:
+
+Monitoring clients gather data through agents installed on servers.
+Agents transmit relevant metrics (CPU usage, memory, network traffic) to the monitoring service.
+Monitoring Web Server QPS:
+
+To monitor Web Server QPS (Queries Per Second), set up monitoring agents to track incoming HTTP requests. Collect and analyze this data over time.
+Issues:
+
+Terminating SSL at Load Balancer:
+
+This prevents end-to-end encryption between the load balancer and application servers.
+Single MySQL Server for Writes:
+
+Creates a single point of failure for write operations.
+Identical Components on Servers:
+
+Uniformity might lead to identical vulnerabilities across the infrastructure.
