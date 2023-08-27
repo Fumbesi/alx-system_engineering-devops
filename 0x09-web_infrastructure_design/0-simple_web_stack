@@ -1,0 +1,38 @@
+
+1. **Server (Physical/Virtual Machine):**
+   A server is a computer system that hosts and serves various components of the web infrastructure. In our case, we have a single server handling all functions.
+
+2. **Domain Name and DNS:**
+   The domain name, "foobar.com," is the human-readable address that users will use to access the website. DNS (Domain Name System) is responsible for translating this domain name into the server's IP address (8.8.8.8). The DNS record "www" is a CNAME record that points to the domain itself (foobar.com).
+
+3. **Web Server (Nginx):**
+   The web server handles incoming HTTP requests from users and serves static files like HTML, CSS, and images. It also manages SSL encryption. In our setup, Nginx is responsible for this role.
+
+4. **Application Server:**
+   The application server executes the dynamic code of the website, processing user input and generating responses. It communicates with the web server to deliver dynamic content. It also can handle tasks like user authentication and application logic.
+
+5. **Application Files (Code Base):**
+   The application files contain the actual code that powers the website's functionality. This code interacts with the application server, which executes it based on user requests.
+
+6. **Database (MySQL):**
+   The database stores and manages the website's data, such as user profiles, posts, and other information. MySQL is used in our setup to handle the database functions.
+
+7. **Communication:**
+   When a user wants to access the website (www.foobar.com), they enter the domain name in their web browser. Their computer performs a DNS lookup to translate the domain name into the server's IP address (8.8.8.8). Once the IP is resolved, the browser sends an HTTP request to the server.
+
+**Roles:**
+- **Web Server (Nginx):** Handles HTTP requests, serves static files, and manages SSL encryption.
+- **Application Server:** Executes dynamic code, handles user input, and communicates with the database.
+- **Database (MySQL):** Stores and retrieves data.
+
+**Issues:**
+1. **Single Point of Failure (SPOF):**
+   Since all components are hosted on a single server, any failure in that server could lead to the entire website going offline.
+
+2. **Downtime During Maintenance:**
+   When maintenance is needed, such as deploying new code that requires the web server to be restarted, the website will experience downtime during the maintenance process.
+
+3. **Limited Scalability:**
+   This infrastructure can't easily handle high levels of incoming traffic. As traffic increases, the server might struggle to manage the load effectively.
+
+To address these issues, a more robust infrastructure would involve distributing components across multiple servers, implementing load balancing, setting up redundancy, and using tools like containers or cloud services to allow for easier scalability and maintenance.
