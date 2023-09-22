@@ -1,6 +1,6 @@
-#This code will create a manifest that kills a process named killmenow.
-exec { killmenow':
-  command  => '/usr/bin/pkill killmenow',
+#this code will create a manifest that kills a process named killmenow.
+exec { 'killmenow':
+  command   => '/usr/bin/pkill killmenow',
   provider  => 'shell',
-  return  => [0, 1],
+  returns   => [0, 1],
 }
