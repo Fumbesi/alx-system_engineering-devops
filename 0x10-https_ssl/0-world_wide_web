@@ -1,34 +1,27 @@
 #!/usr/bin/env bash
+#Usage: ./1-world_wide_web <domain> <subdomain>
+#Display information about subdomains.
 
 # Function to display DNS information for a subdomain
-display_dns_info() {
-    local domain="$1"
-    local subdomain="$2"
-
-    # Use dig to get DNS information for the subdomain
-    dns_info=$(dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:')
-
-    # Extract relevant information using awk
-    subdomain_ip=$(echo "$dns_info" | awk '/A/{print $5}')
-    record_type=$(echo "$dns_info" | awk '/IN/{print $4}')
-
-    # Display the information
-    echo "The subdomain $subdomain is a $record_type record and points to $subdomain_ip"
+domain_information () { 
+    #Perform DNS lookup for the subdomain under the specified domain
+    line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' |tail -2 | tr '\n' ' ' ) 
+    #Extract relevant information and print it
+    echo "$2 $line" |awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
 
-# Check if the script has been provided with both domain and subdomain parameters
-if [ $# -eq 2 ]; then
-    domain="$1"
-    subdomain="$2"
-    display_dns_info "$domain" "$subdomain"
-elif [ $# -eq 1 ]; then
-    domain="$1"
-    # Display information for default subdomains www, lb-01, web-01, and web-02
-    display_dns_info "$domain" "www"
-    display_dns_info "$domain" "lb-01"
-    display_dns_info "$domain" "web-01"
-    display_dns_info "$domain" "web-02"
-else
-    echo "Usage: $0 <domain> [subdomain]"
-    exit 1
+# Check the number of arguments passed to the script
+if [ "$#" == 1 ]
+then
+    # If there is only one argument,
+    #   call the domain_information function with predefined subdomain names
+    domain_infomation "$1" "www"
+    domain_infomation "$1" "lb-01"
+    domain_infomation "$1" "web-01"
+    domain_infomation "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+    # If there are two arguments, call the domain_information \
+    #   function with the provided subdomain name
+    domain_information "$1" "$2"
 fi
