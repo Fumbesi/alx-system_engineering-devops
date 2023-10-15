@@ -1,0 +1,46 @@
+https://docs.google.com/document/d/1vjph-Dmsds8i2jCOuuDehC09CXdBJMWE-3LVDrSDz6I/edit?usp=sharing
+
+What happens when you type google.com in your browser and press Enter
+
+
+Ever wondered what happens when you type "https://www.google.com" into your browser and hit Enter? It's not just a simple click; it's a fascinating journey through the depths of the internet. Let's dive into the real-world process that brings Google's search engine to your screen.
+
+1. Finding the Address:
+
+Your computer needs to know where Google's website is located. It's like looking up a friend's address in a phonebook. This happens through a system called DNS (Domain Name System).
+
+2. Navigating the Internet Highway:
+
+Now that you have the address, your request travels through a network of connections, kind of like taking a highway to reach your destination. This system is known as TCP/IP.
+
+3. The Firewall Guardian:
+
+Before you can enter Google's virtual space, there's a guardian called a firewall. It's like a security checkpoint that makes sure your request isn't a threat.
+
+4. Privacy and Security:
+
+When your computer talks to Google, they use a special code known as HTTPS/SSL to keep your conversation private and secure. It's like having a locked diary that no one can read.
+
+5. Sorting the Traffic:
+
+Google's servers can be quite busy, like a bustling shopping mall. To make sure everything runs smoothly, there's a load-balancer that directs your request to the right place.
+
+6. The Web Server:
+
+Once inside, your request meets the web server. Think of it as the host at a restaurant who takes your order. It handles the HTTP requests, serving web pages and returning the information you requested.
+
+7. Extra Help for Complex Tasks:
+
+For more complicated jobs, like searching the entire web, your request might be passed to an application server. It's like calling in an expert to get the job done efficiently.
+
+8. Finding the Information:
+
+If your request involves specific data, like search results, it's fetched from a database. Think of this like a huge library with all the information you need.
+
+In a matter of moments, your request is gathered, processed, and sent back in reverse order. It's like a well-organised assembly line.
+
+Your web browser then takes all this data and turns it into the Google search page you see on your screen.
+
+So, the next time you type "https://www.google.com" and hit Enter, you'll know there's a lot more to it than meets the eye. It's a behind-the-scenes teamwork of various technologies making your web experience seamless.
+
+Now, when you surf the internet, you can appreciate the incredible journey that takes place each time you visit a website. It's like peeling back the curtain on the digital world, revealing the hidden mechanics that make it all possible. 🌐🚀
