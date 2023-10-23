@@ -29,11 +29,11 @@ if __name__ == "__main__":
         if (user_response.status_code != 200 or
                 todos_response.status_code != 200):
             print("Employee not found")
-        else: 
+        else:
             employee_name = user_data["name"]
             total_tasks = len(todos_data)
-            completed_tasks = [task for task in todos_data 
-        if task["completed"]]
+            completed_tasks = [task for task in todos_data( 
+            if task["completed"]])
             num_completed_tasks = len(completed_tasks)
 
             print("Employee {} is done with tasks({}/{}):".format(
@@ -42,3 +42,4 @@ if __name__ == "__main__":
                 print("\t {}".format(task["title"]))
     except Exception as e:
         print("An error occurred:", e)
+
