@@ -7,7 +7,7 @@ import csv
 import requests
 import sys
 
-if __name__ == "__main__":
+if __name__ == "__main":
     if len(sys.argv) != 2:
         print("Usage: {} <employee_id>".format(sys.argv[0]))
         sys.exit(1)
@@ -24,23 +24,24 @@ if __name__ == "__main__":
         user_response = requests.get(user_url)
         todos_response = requests.get(todos_url)
 
-        if user_response.status_code != 200 or todos_response.status_code != 200:
+        user_data = user_response.json()
+        todos_data = todos_response.json()
+
+        if (user_response.status_code != 200 or
+                todos_response.status_code != 200):
             print("Employee not found")
         else:
-            user_data = user_response.json()
-            todos_data = todos_response.json()
             employee_name = user_data["username"]
             csv_filename = "{}.csv".format(employee_id)
 
             with open(csv_filename, mode="w", newline='') as csv_file:
-                writer = csv.writer(csv_file)
-                writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+                csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_MINIMAL)
+                csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
 
                 for task in todos_data:
-                    writer.writerow([employee_id, employee_name, task["completed"], task["title"])
+                    csv_writer.writerow([employee_id, employee_name, task["completed"], task["title"]])
 
             print("Data exported to {}.".format(csv_filename))
 
     except Exception as e:
         print("An error occurred:", e)
-
