@@ -26,7 +26,8 @@ if __name__ == "__main__":
         user_data = user_response.json()
         todos_data = todos_response.json()
 
-        if user_response.status_code != 200 or todos_response.status_code != 200:
+        if (user_response.status_code != 200 or
+                todos_response.status_code != 200):
             print("Employee not found")
         else:
             employee_name = user_data["name"]
