@@ -24,8 +24,7 @@ if __name__ == "__main__":
         user_response = requests.get(user_url)
         todos_response = requests.get(todos_url)
 
-        if user_response.status_code != 200 
-        or todos_response.status_code != 200:
+        if user_response.status_code != 200 or todos_response.status_code != 200:
             print("Employee not found")
         else:
             user_data = user_response.json()
